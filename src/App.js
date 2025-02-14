@@ -8,8 +8,16 @@ export default function App() {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [ticketCount, setTicketCount] = useState(1);
   const [attendeeDetails, setAttendeeDetails] = useState(null);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(() => {
+    return Number(localStorage.getItem("currentStep")) || 1;
+  });
   const [currentPage, setCurrentPage] = useState("ticketSelection");
+  const [ticketError, setTicketError] = useState("");
+
+  const updateStep = (newStep) => {
+    setStep(newStep);
+    localStorage.setItem("curentStep", newStep);
+  };
 
   const onSaveTicketData = () => {
     if (selectedTicket && ticketCount && attendeeDetails) {
@@ -33,6 +41,11 @@ export default function App() {
       setStep(savedTicket.step);
       setCurrentPage("Ready");
     }
+
+    const savedStep = Number(localStorage.getItem("currentStep"));
+    if (savedStep) {
+      setStep(savedStep);
+    }
   }, []);
 
   const handleBookTicket = () => {
@@ -46,9 +59,10 @@ export default function App() {
 
   const handleNextClick = () => {
     if (!selectedTicket) {
-      alert("Please select a ticket before proceeding!");
+      setTicketError("Please choose a ticket to proceed!");
       return;
     }
+    setTicketError("");
     setStep(2);
   };
   return (
@@ -61,6 +75,7 @@ export default function App() {
           setTicketCount={setTicketCount}
           ticketCount={ticketCount}
           handleNextClick={handleNextClick}
+          ticketError={ticketError}
         />
       )}
       {step === 2 && (

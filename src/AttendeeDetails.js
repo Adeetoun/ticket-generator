@@ -10,6 +10,7 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
 
   const [profileImage, setProfileImage] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [imageError, SetImageError] = useState("");
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -44,6 +45,11 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
   };
 
   const onSubmit = (data) => {
+    if (!profileImage) {
+      SetImageError("Profile is required");
+      return;
+    }
+    SetImageError("");
     const attendeeData = { ...data, profileImage };
 
     setAttendeeDetails(attendeeData);
@@ -61,7 +67,7 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
           <h5>Upload Profile Photo</h5>
           <div className="profile-box" onClick={openCloudinaryWidget}>
             {uploading ? (
-              <p className="profile-text">click to upload</p>
+              <p className="profile-text">uploading...</p>
             ) : profileImage ? (
               <img
                 src={profileImage}
@@ -72,6 +78,7 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
               <p className="profile-text">click to upload</p>
             )}
           </div>
+          {imageError && <p className="error-message">{imageError}</p>}
         </div>
 
         <hr />

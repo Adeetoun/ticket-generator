@@ -5,6 +5,7 @@ export default function TicketsSelection({
   setSelectedTicket,
   setTicketCount,
   ticketCount,
+  ticketError,
   handleNextClick,
 }) {
   const handleTicketSelection = (ticketType) => {
@@ -52,6 +53,7 @@ export default function TicketsSelection({
               </div>
             ))}
           </div>
+          {ticketError && <p className="error-message">{ticketError}</p>}
           <h5>Number of Tickets</h5>
           <select
             value={ticketCount}

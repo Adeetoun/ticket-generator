@@ -313,8 +313,15 @@ td span {
 }
 .barcode {
   position: relative;
-  top: 400px;
+  top: 410px;
   left: 5px;
+  display: none;
+}
+.error-message {
+  color: #4e808a;
+  font-size: 12px;
+  margin-top: 2px;
+  text-align: center;
 }
 @media (max-width: 768px) {
   body {
@@ -377,5 +384,8 @@ td span {
     justify-content: center;
     align-items: center;
     width: 100%;
+  }
+  .barcode {
+    display: block;
   }
 }

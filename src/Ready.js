@@ -73,7 +73,7 @@ export default function Ready({
                 </tbody>
               </table>
               <div className="barcode">
-                <img src="public\img\Bar Code.svg" alt="barcode" />
+                <img src="/img/Bar Code.png" alt="" />
               </div>
             </div>
           </div>
