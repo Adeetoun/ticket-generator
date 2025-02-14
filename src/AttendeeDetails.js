@@ -67,7 +67,7 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
           <h5>Upload Profile Photo</h5>
           <div className="profile-box" onClick={openCloudinaryWidget}>
             {uploading ? (
-              <p className="profile-text">uploading...</p>
+              <p className="profile-text">loading...</p>
             ) : profileImage ? (
               <img
                 src={profileImage}
