@@ -1,0 +1,381 @@
+body {
+  background-color: #041e23;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@import url("https://db.onlinewebfonts.com/c/1a5c2d8bbd4e28d99a6efcbb9a5b378f?family=JejuMyeongjo");
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  background-color: #0e464f;
+  color: #ffffff;
+  border: 1px solid #24a0b5;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.logo {
+  padding: 7px;
+  margin: 7px;
+}
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+.nav ul li {
+  padding: 5px;
+  list-style: none;
+}
+.ticket-nav li {
+  list-style: none;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 25px;
+}
+.ticket-nav li:hover {
+  opacity: 0.2;
+}
+.container {
+  margin: 0 auto;
+  margin-top: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #031a1e;
+  border: 1px solid #24a0b5;
+  border-radius: 25px;
+  width: 85%;
+}
+.about,
+.details {
+  padding: 15px;
+  margin: 15px;
+  font-weight: lighter;
+}
+.details {
+  background-color: #02242b;
+  border-radius: 10px;
+  width: 80%;
+}
+h2 {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 100;
+}
+.hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #24a0b5 50%, #135b67 50%);
+}
+.about-container,
+.photo-container {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #24a0b5;
+  border-radius: 25px;
+  background-color: #032025;
+  margin-top: 20px;
+}
+.header {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background: linear-gradient(to right, #0e464f, #032025);
+  border-radius: 25px;
+}
+
+.profile-box {
+  width: 100%;
+  height: 150px;
+  border: none;
+  background-color: #032025;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+}
+.profile-box:hover {
+  border-color: #4a90e2;
+}
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.profile-text {
+  padding: 10px;
+  margin: 10px;
+}
+h5 {
+  font-weight: 100;
+}
+.tickets {
+  display: flex;
+  border-radius: 25px;
+  opacity: 0.7;
+  background-color: #031a1f;
+}
+.ticket {
+  flex: 1;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 25px;
+  border: 1px solid #24a0b5;
+  cursor: pointer;
+  text-align: left;
+  color: #fff;
+  background-color: #031a1e;
+  text-transform: uppercase;
+}
+.ticket:hover {
+  background: #24a0b5;
+  padding: 10px;
+}
+.ticket .selected {
+  background: #0a5768;
+}
+h3 {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 5px;
+  font-size: 14px;
+}
+.ticket span {
+  border-radius: 10px;
+  text-align: start;
+  width: 30%;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+.ticket p {
+  margin: 5px;
+}
+select {
+  width: 80%;
+  background: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+}
+option {
+  background: #05404b;
+  color: #fff;
+}
+.btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  background: #05404b;
+  border-radius: 15px;
+}
+button {
+  padding: 10px;
+  width: 40%;
+  background: #05404b;
+  color: #24a0b5;
+  border: 1px solid #24a0b5;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.secondary {
+  background-color: #24a0b5;
+  color: #fff;
+}
+form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+input,
+textarea {
+  background-color: #031a1e;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #0d5663;
+  color: #fff;
+}
+.ticket-container {
+  margin: 0 auto;
+  margin-top: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #031a1e;
+  border-radius: 25px;
+  border: 1px solid #24a0b5;
+  width: 70%;
+}
+.header-booked {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.ticket-background {
+  background-image: url("/public/img/TICKET.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  max-height: 200%;
+}
+.ticket-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin: 30px;
+  border-radius: 25px;
+  position: relative;
+  z-index: 1;
+}
+.profile {
+  position: absolute;
+  top: 105px;
+  object-fit: cover;
+  border-radius: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+.profile img {
+  object-fit: cover;
+  width: 150px;
+  height: 120px;
+  text-align: center;
+}
+.ticket-details {
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 150%;
+}
+.ticket-details h3 {
+  font-size: 12px;
+}
+.ticket-details p {
+  font-size: 10px;
+  position: relative;
+}
+.ticket-page hr {
+  height: 200px;
+}
+.profile-details {
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+}
+table {
+  position: absolute;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  table-layout: fixed;
+  top: 235px;
+  left: 2px;
+}
+td,
+th {
+  padding: 8px;
+  border: 1px solid #24a0b5;
+  color: #6e7f82;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 12px;
+}
+td span {
+  margin-top: 5px;
+  color: #fff;
+}
+.barcode {
+  position: relative;
+  top: 400px;
+  left: 5px;
+}
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav {
+    display: none;
+  }
+  .about h2 {
+    display: flex;
+    flex-direction: column;
+  }
+  .container {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .ticket-container {
+    width: 80%;
+  }
+  .tickets {
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  .ticket {
+    border: 1px solid #24a0b5;
+    flex: 1;
+    width: 80%;
+  }
+  .ticket span {
+    width: 60%;
+    height: 5vh;
+    text-align: start;
+  }
+  h3 {
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 14px;
+  }
+  .btn {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  button {
+    width: 80%;
+  }
+  .profile {
+    height: 150px;
+    width: 150px;
+  }
+
+  table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
