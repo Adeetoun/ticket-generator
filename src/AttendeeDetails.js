@@ -40,6 +40,7 @@ export default function AttendeeDetails({
         multiple: false,
         cropping: true,
         showAdvancedOptions: false,
+        sources: ["local"],
       },
       (error, result) => {
         if (error) {
