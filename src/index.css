@@ -229,6 +229,9 @@ textarea {
   margin: 10px;
   border: 1px solid #0d5663;
   color: #fff;
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
 }
 .ticket-container,
 .attendee-container {
