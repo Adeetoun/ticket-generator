@@ -417,10 +417,11 @@ td span {
     align-items: center;
   }
   .profile-details {
-    width: 170%;
+    width: 150%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
   }
   table {
     width: 60%;
