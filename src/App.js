@@ -8,16 +8,20 @@ export default function App() {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [ticketCount, setTicketCount] = useState(1);
   const [attendeeDetails, setAttendeeDetails] = useState(null);
+  const [currentPage, setCurrentPage] = useState("ticketSelection");
+  const [ticketError, setTicketError] = useState("");
   const [step, setStep] = useState(() => {
     return Number(localStorage.getItem("currentStep")) || 1;
   });
-  const [currentPage, setCurrentPage] = useState("ticketSelection");
-  const [ticketError, setTicketError] = useState("");
 
   const updateStep = (newStep) => {
     setStep(newStep);
-    localStorage.setItem("curentStep", newStep);
+    localStorage.setItem("currentStep", newStep);
   };
+
+  useEffect(() => {
+    localStorage.setItem("currentStep", step);
+  }, [step]);
 
   const onSaveTicketData = () => {
     if (selectedTicket && ticketCount && attendeeDetails) {
@@ -76,12 +80,18 @@ export default function App() {
           ticketCount={ticketCount}
           handleNextClick={handleNextClick}
           ticketError={ticketError}
+          setStep={setStep}
+          updateStep={updateStep}
+          step={step}
         />
       )}
       {step === 2 && (
         <AttendeeDetails
           setAttendeeDetails={setAttendeeDetails}
           setStep={setStep}
+          updateStep={updateStep}
+          step={step}
+          selectedTicket={selectedTicket}
         />
       )}
       {step === 3 && (
@@ -91,6 +101,8 @@ export default function App() {
           attendeeDetails={attendeeDetails}
           onSaveTicketData={onSaveTicketData}
           handleBookTicket={handleBookTicket}
+          updateStep={updateStep}
+          step={step}
         />
       )}
     </div>

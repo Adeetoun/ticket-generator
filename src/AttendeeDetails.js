@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
+export default function AttendeeDetails({
+  setAttendeeDetails,
+  setStep,
+  selectedTicket,
+  step,
+}) {
   const {
     register,
     handleSubmit,
@@ -13,14 +18,16 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
   const [imageError, SetImageError] = useState("");
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://upload-widget.cloudinary.com/global/all.js";
-    script.async = true;
-    document.body.appendChild(script);
+    if (!window.cloudinary) {
+      const script = document.createElement("script");
+      script.src = "https://upload-widget.cloudinary.com/global/all.js";
+      script.async = true;
+      document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
   }, []);
 
   const openCloudinaryWidget = () => {
@@ -35,7 +42,13 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
         showAdvancedOptions: false,
       },
       (error, result) => {
-        if (!error && result.event === "success") {
+        if (error) {
+          SetImageError("Image upload failed. Try again");
+          setUploading(false);
+          return;
+        }
+
+        if (result.event === "success") {
           setProfileImage(result.info.secure_url);
           setUploading(false);
         }
@@ -50,21 +63,26 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
       return;
     }
     SetImageError("");
-    const attendeeData = { ...data, profileImage };
+
+    const attendeeData = {
+      ...data,
+      profileImage,
+      ticketType: selectedTicket,
+    };
 
     setAttendeeDetails(attendeeData);
     setStep(3);
   };
 
   return (
-    <div className="container">
+    <div className="attendee-container">
       <div className="details">
         <h2>
-          Attendee Details <span>step 2/3</span>
+          Attendee Details <span>step {step}/3</span>
         </h2>
         <hr className="hr" />
+        <h5>Upload Profile Photo</h5>
         <div className="photo-container">
-          <h5>Upload Profile Photo</h5>
           <div className="profile-box" onClick={openCloudinaryWidget}>
             {uploading ? (
               <p className="profile-text">loading...</p>
@@ -127,7 +145,7 @@ export default function AttendeeDetails({ setAttendeeDetails, setStep }) {
               Back
             </button>
             <button className="secondary" type="submit">
-              Get My Free Ticket
+              Get My {selectedTicket || "Selected"} Ticket
             </button>
           </div>
         </form>

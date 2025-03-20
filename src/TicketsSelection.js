@@ -7,6 +7,7 @@ export default function TicketsSelection({
   ticketCount,
   ticketError,
   handleNextClick,
+  step,
 }) {
   const handleTicketSelection = (ticketType) => {
     setSelectedTicket(ticketType);
@@ -16,7 +17,7 @@ export default function TicketsSelection({
     <div className="container">
       <div className="about">
         <h2>
-          Ticket Selection <span>step 1/3</span>
+          Ticket Selection <span>step {step}/3</span>
         </h2>
         <hr className="hr" />
         <div className="about-container">

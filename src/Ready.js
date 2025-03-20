@@ -6,6 +6,7 @@ export default function Ready({
   attendeeDetails,
   onSaveTicketData,
   handleBookTicket,
+  step,
 }) {
   useEffect(() => {
     onSaveTicketData();
@@ -19,7 +20,7 @@ export default function Ready({
     <div className="ticket-container">
       <div className="details">
         <h2>
-          Ready <span>step 3/3</span>
+          Ready <span>step {step}/3</span>
         </h2>
         <hr className="hr" />
         <div className="header-booked">
@@ -40,7 +41,7 @@ export default function Ready({
                 "No image uploaded"
               )}
             </div>
-            <div className="pnrofile-details">
+            <div className="profile-details">
               <table className="info-table">
                 <tbody>
                   <tr>
@@ -72,9 +73,9 @@ export default function Ready({
                   </td>
                 </tbody>
               </table>
-              <div className="barcode">
-                <img src="/img/Bar Code.png" alt="" />
-              </div>
+            </div>
+            <div className="barcode">
+              <img src="/img/Bar Code.png" alt="barcode" />
             </div>
           </div>
         </div>
